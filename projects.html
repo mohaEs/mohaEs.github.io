@@ -72,7 +72,17 @@
         }
 
         .project {
+            display: flex;
+            flex-direction: column;
             margin-bottom: 30px;
+        }
+
+        .project img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
         }
 
         .project h3 {
@@ -85,6 +95,26 @@
             font-size: 16px;
             color: #555;
             line-height: 1.6;
+        }
+
+        .publication-previews {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .publication-previews iframe {
+            width: calc(50% - 15px);
+            height: 300px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .publication-previews iframe {
+                width: 100%;
+            }
         }
 
         footer {
@@ -149,18 +179,27 @@
         <h2>My Projects</h2>
 
         <div class="project">
-            <h3>Project Title 1</h3>
-            <p>Description of the first project. Include details about the objectives, methodologies, results, and significance.</p>
-        </div>
+            <img src="images/project1-thumbnail.jpg" alt="Project 1 Thumbnail">
+            <div>
+                <h3>Project Title 1</h3>
+                <p>Description of the first project. Include details about the objectives, methodologies, results, and significance.</p>
 
-        <div class="project">
-            <h3>Project Title 2</h3>
-            <p>Description of the second project. Include details about the objectives, methodologies, results, and significance.</p>
-        </div>
-
-        <div class="project">
-            <h3>Project Title 3</h3>
-            <p>Description of the third project. Include details about the objectives, methodologies, results, and significance.</p>
+                <!-- Publication Previews -->
+                <div class="publication-previews">
+                    <a href="https://scholar.google.de/citations?user=uHe4lbYAAAAJ&hl=en" target="_blank">
+                        <iframe src="https://scholar.google.de/citations?user=uHe4lbYAAAAJ&hl=en" title="Publication 1 Preview"></iframe>
+                    </a>
+                    <a href="https://ieeexplore.ieee.org/abstract/document/8999560" target="_blank">
+                        <iframe src="https://ieeexplore.ieee.org/abstract/document/8999560" title="Publication 2 Preview"></iframe>
+                    </a>
+                    <a href="https://link-to-publication3.com" target="_blank">
+                        <iframe src="https://link-to-publication3.com" title="Publication 3 Preview"></iframe>
+                    </a>
+                    <a href="https://link-to-publication4.com" target="_blank">
+                        <iframe src="https://link-to-publication4.com" title="Publication 4 Preview"></iframe>
+                    </a>
+                </div>
+            </div>
         </div>
 
         <!-- Add more projects as needed -->
