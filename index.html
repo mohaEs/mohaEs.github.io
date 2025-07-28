@@ -237,7 +237,52 @@
                 max-width: 100px;
             }
         }
+
+        /* Web Links Section */
+        .links-list {
+            list-style: none !important;
+            padding-left: 0 !important;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .links-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.3rem 0;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .links-list li:last-child {
+            border-bottom: none;
+        }
+
+        .links-list a {
+            color: #c41e3a;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .links-list a:hover {
+            color: #a01729;
+            text-decoration: underline;
+        }
+
+        /* Responsive - stack on mobile */
+        @media (max-width: 768px) {
+            .links-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
     </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
     <!-- Navigation -->
@@ -310,36 +355,39 @@
             </ul>
         </div>
 
-        <!-- Education -->
-        <div class="content-section">
-            <h2>Education</h2>
-            <ul>
-                <li><strong>[Degree]</strong> - [University], [Year]</li>
-                <li><strong>[Residency]</strong> - [Institution], [Year]</li>
-                <li><strong>[Fellowship]</strong> - [Institution], [Year]</li>
-                <li><strong>[Additional Training]</strong> - [Institution], [Year]</li>
-            </ul>
-        </div>
+        <!--            
+            <div class="content-section">
+                <h2>Education</h2>
+                <ul>
+                    <li><strong>[Degree]</strong> - [University], [Year]</li>
+                    <li><strong>[Residency]</strong> - [Institution], [Year]</li>
+                    <li><strong>[Fellowship]</strong> - [Institution], [Year]</li>
+                    <li><strong>[Additional Training]</strong> - [Institution], [Year]</li>
+                </ul>
+            </div>
+        -->
 
         <!-- Contact -->
         <div class="content-section">
-            <h2>Contact Information</h2>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <div class="contact-icon">📧</div>
-                    <h3>Email</h3>
-                    <p>[your.email]@hms.harvard.edu</p>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <h3>Office</h3>
-                    <p>[Building Name]<br>Room [Number]<br>Boston, MA</p>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">📱</div>
-                    <h3>Phone</h3>
-                    <p>(617) [XXX-XXXX]</p>
-                </div>
+        <!-- Web Links & Professional Profiles -->
+            <div class="content-section">
+                <h2>Web Links & Professional Profiles</h2>
+                <ul class="links-list">                    
+                    <li>📧 <a href="mailto:">moha_esla @ meei.harvard.edu</a></li>
+                    <li> <i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/eslamimohammad/" target="_blank">LinkedIn Profile</a></li>
+                    <li>🏥 <a href="https://catalyst.harvard.edu/profiles/yourprofile" target="_blank">Harvard Catalyst</a></li>
+                    <li><i class="fas fa-graduation-cap"></i> <a href="https://scholar.google.com/citations?user=yourid" target="_blank">Google Scholar</a></li>
+                    <li><i class="fa-brands fa-orcid"></i> <a href="https://orcid.org/0000-0000-0000-0000" target="_blank">ORCID</a></li>
+                    <li><i class="fas fa-book-open"></i> <a href="https://pubmed.ncbi.nlm.nih.gov/?term=yourname" target="_blank">PubMed Publications</a></li>
+                    <li>🏛️ <a href="https://hms.harvard.edu/faculty/yourprofile" target="_blank">HMS Faculty Page</a></li>
+                    <li>🏛️ <a href="https://hms.harvard.edu/faculty/yourprofile" target="_blank">Ophai</a></li>
+                    <li>🏛️ <a href="https://hms.harvard.edu/faculty/yourprofile" target="_blank">data science</a></li>
+                    <li>🏛️ <a href="https://hms.harvard.edu/faculty/yourprofile" target="_blank">HMS ophthal</a></li>
+
+
+
+
+                </ul>
             </div>
         </div>
     </div>
