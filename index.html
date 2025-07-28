@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moha - Harvard Medical School</title>
+    <title>Dr. [Your Name] - Harvard Medical School</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1;
+            line-height: 1.2;
             color: #333;
             background: #f8f9fa;
         }
@@ -106,7 +106,13 @@
             font-size: 1.2rem;
             color: #666;
             margin-bottom: 1rem;
+            margin: 2px 0; /* Remove extra vertical space */
         }
+
+        .profile-info {
+        line-height: 1.0; /* Reduce line spacing */
+        }
+
 
         /* Logos Section */
         .logos {
@@ -115,19 +121,30 @@
             gap: 2rem;
             margin-top: 2rem;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .logo-item {
-            width: 80px;
-            height: 80px;
-            background: #f0f0f0;
+            height: 60px;
+            width: auto;
+            min-width: 80px;
+            max-width: 150px;
+            background: transparent;
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
             color: #666;
-            border: 2px solid #ddd;
+            padding: 0.5rem;
+        }
+
+        .logo-item img {
+            max-height: 100%;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
         }
 
         /* Content Sections */
@@ -194,8 +211,9 @@
             }
 
             .logo-item {
-                width: 60px;
-                height: 60px;
+                height: 50px;
+                min-width: 60px;
+                max-width: 120px;
             }
 
             .nav-links {
@@ -205,6 +223,18 @@
             .nav-links a {
                 padding: 0.3rem 0.8rem;
                 font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logos {
+                gap: 0.5rem;
+            }
+
+            .logo-item {
+                height: 40px;
+                min-width: 50px;
+                max-width: 100px;
             }
         }
     </style>
@@ -218,7 +248,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="projects.html">Projects</a></li>
-                    <li><a href="students.html">RAs & Students </a></li>
+                    <li><a href="students.html">Students & Research</a></li>
                 </ul>
             </div>
         </div>
@@ -243,10 +273,22 @@
             
             <!-- Logos Section -->
             <div class="logos">
-                <div class="logo-item">🏥</div>
-                <div class="logo-item">🎓</div>
-                <div class="logo-item">🔬</div>
-                <div class="logo-item">📊</div>
+                <div class="logo-item">
+                    <!-- Replace with: <img src="logo1.png" alt="Institution Logo"> -->
+                    <img src="./images/HarvardMedicalSchool.webp" alt="Hospital Logo">
+                </div>
+                <div class="logo-item">
+                    <!-- Replace with: <img src="logo2.png" alt="Organization Logo"> -->
+                    <img src="./images/AILab.png" alt="Hospital Logo">
+                </div>
+                <div class="logo-item">
+                    <!-- Replace with: <img src="logo3.png" alt="Research Center Logo"> -->
+                    <img src="./images/MEE.png" alt="Hospital Logo">
+                </div>
+                <div class="logo-item">
+                    <!-- Replace with: <img src="logo4.png" alt="Collaboration Logo"> -->
+                    <img src="./images/schepens_logo.png" alt="Hospital Logo">
+                </div>
             </div>
         </div>
 
