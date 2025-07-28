@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. [Your Name] - Harvard Medical School</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #c41e3a;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: #c41e3a;
+            color: white;
+        }
+
+        /* Header Section */
+        .header {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #666;
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            color: #c41e3a;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-info p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* Logos Section */
+        .logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-item {
+            width: 80px;
+            height: 80px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #666;
+            border: 2px solid #ddd;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .content-section h2 {
+            color: #c41e3a;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #c41e3a;
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section p, .content-section li {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .content-section ul {
+            padding-left: 2rem;
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            color: #c41e3a;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logos {
+                gap: 1rem;
+            }
+
+            .logo-item {
+                width: 60px;
+                height: 60px;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">Dr. [Your Name]</div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="students.html">Students & Research</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <div class="profile-section">
+                <div class="profile-img">📸</div>
+                <div class="profile-info">
+                    <h1>Dr. [Your Name]</h1>
+                    <p>Instructor, Harvard Medical School</p>
+                    <p>[Your Department/Specialty]</p>
+                </div>
+            </div>
+            
+            <!-- Logos Section -->
+            <div class="logos">
+                <div class="logo-item">🏥</div>
+                <div class="logo-item">🎓</div>
+                <div class="logo-item">🔬</div>
+                <div class="logo-item">📊</div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="content-section">
+            <h2>About</h2>
+            <p>I am an instructor at Harvard Medical School specializing in [your specialty]. My work focuses on advancing medical knowledge through research and educating the next generation of healthcare professionals.</p>
+            <p>My research interests include [research area 1], [research area 2], and [research area 3]. I am committed to translating research findings into clinical practice to improve patient outcomes.</p>
+        </div>
+
+        <!-- Research Interests -->
+        <div class="content-section">
+            <h2>Research Interests</h2>
+            <ul>
+                <li>[Research Interest 1] - Description of this research area</li>
+                <li>[Research Interest 2] - How this contributes to medical advancement</li>
+                <li>[Research Interest 3] - Clinical applications and impact</li>
+                <li>[Research Interest 4] - Future directions and goals</li>
+            </ul>
+        </div>
+
+        <!-- Education -->
+        <div class="content-section">
+            <h2>Education</h2>
+            <ul>
+                <li><strong>[Degree]</strong> - [University], [Year]</li>
+                <li><strong>[Residency]</strong> - [Institution], [Year]</li>
+                <li><strong>[Fellowship]</strong> - [Institution], [Year]</li>
+                <li><strong>[Additional Training]</strong> - [Institution], [Year]</li>
+            </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="content-section">
+            <h2>Contact Information</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>[your.email]@hms.harvard.edu</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <h3>Office</h3>
+                    <p>[Building Name]<br>Room [Number]<br>Boston, MA</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <h3>Phone</h3>
+                    <p>(617) [XXX-XXXX]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
