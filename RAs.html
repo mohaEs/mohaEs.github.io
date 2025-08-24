@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interns & Students - Dr. [Your Name] - Harvard Medical School</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #c41e3a;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: #c41e3a;
+            color: white;
+        }
+
+        /* Header Section */
+        .header {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #c41e3a;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* Table Container */
+        .table-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        /* Table Styles */
+        .students-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+        }
+
+        .students-table th {
+            background: #c41e3a;
+            color: white;
+            padding: 1.2rem 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .students-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            vertical-align: top;
+        }
+
+        .students-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* Photo Column */
+        .photo-cell {
+            width: 70px;
+            text-align: center;
+        }
+
+        .photo-placeholder {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #6c757d;
+            margin: 0 auto;
+        }
+
+        /* Name Column */
+        .name-cell {
+            min-width: 180px;
+        }
+
+        .student-subtitle {
+            font-size: 0.8rem;
+            color: #314b43;
+            font-weight: 400;
+            margin-top: 0.2rem;
+        }
+
+        .student-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        /* Status Column */
+        .status-cell {
+            width: 120px;
+            text-align: center;
+        }
+
+        .status-badge {
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .status-current {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-alumni {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        /* Projects Column */
+        .projects-cell {
+            min-width: 250px;
+        }
+
+        .project-item {
+            background: #f8f9fa;
+            padding: 0.4rem 0.8rem;
+            margin: 0.3rem 0;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            border-left: 3px solid #c41e3a;
+        }
+
+        /* Papers Column */
+        .papers-cell {
+            min-width: 150px;
+        }
+
+        .paper-count {
+            background: #e9ecef;
+            color: #495057;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        /* Notes Column */
+        .notes-cell {
+            min-width: 200px;
+            color: #666;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .students-table {
+                font-size: 0.9rem;
+            }
+            
+            .students-table th,
+            .students-table td {
+                padding: 0.8rem 0.5rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">Dr. Moha</div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="students.html" class="active">Research Assistants</a></li>                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Interns & Students Registry</h1>
+            <p>Complete overview of all students and interns</p>
+        </div>
+
+        <!-- Table Container -->
+        <div class="table-container">
+            <div class="table-wrapper">
+                <table class="students-table">
+                    <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Name</th>
+                            <th>Initial Affiliation</th>
+                            <th>Status</th>
+                            <th>Projects</th>
+                            <th>Publications</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Sample Row 1 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Srikar Kusumanchi</div>
+                                <div class="student-subtitle"></div>
+                            </td>
+                            <td>Ravenwood High School, Tennessee, United States</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">AI-based Diagnostic Tools</div>
+                                <div class="project-item">Surgical AI</div>
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count">3</div>
+                            </td>
+                            <td class="notes-cell">Joined ... University</td>
+                        </tr>
+
+                        <!-- Sample Row 2 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Umur Berkay Karakas</div>
+                                <div class="student-subtitle">Masters Student</div>
+                            </td>
+                            <td>LMU Munich, Germany</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">LLM and VLM</div>
+                                <div class="project-item">Surgical AI</div>
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count"></div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>
+
+
+
+                        <!-- Sample Row 4 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Gajan Mohan Raj</div>
+                            </td>
+                            <td>High Technology High School, NJ, USA</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Quantum Machine Learning</div>                                
+                                <div class="project-item">Surgical AI</div>
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count">2</div>
+                            </td>
+                            <td class="notes-cell">Joined  ... university</td>
+                        </tr>
+
+                        <!-- Sample Row 5 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Zayan Hasan</div>
+                            </td>
+                            <td>Academies of Loudoun, VA, USA</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Quantum Machine Learning</div>
+                                <div class="project-item">Surgical AI</div>
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count">1</div>
+                            </td>
+                            <td class="notes-cell">Joined  ... university</td>
+                        </tr>
+
+                        <!-- Sample Row 6 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Misaal Khan</div>
+                                <div class="student-subtitle">PhD Student</div>
+                            </td>
+                            <td>All India Institute of Medical Sciences, India</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Single-Cell AI analysis</div>
+                                <div class="project-item">Aging</div>
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count">1-in preparation</div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>
+
+                        <!-- Sample Row 7 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Mona Alhassan</div>
+                                <div class="student-subtitle">DMD</div>
+                            </td>
+                            <td>Harvard Medical School</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Cardiovascular Risk Prediction</div>
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count"></div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>
+
+                        <!-- Sample Row 8 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Sarvesh Ramakrishnan</div>
+                                <div class="student-subtitle">B.Sc Stundent</div>
+                            </td>
+                            <td>University of Tulsa, USA</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Glaucoma</div>
+                                <div class="project-item">Aging</div>
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count">1-in preparation</div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>
+
+                        <!-- Sample Row 9 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Paul Chevalier</div>
+                                <div class="student-subtitle">M.Sc Stundent</div>
+                            </td>
+                            <td>CentraleSupélec, France</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Ultra wide field Image Analysis</div>
+                                <div class="project-item">Surgical AI</div>
+                                <div class="project-item">Aging</div>
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count">1-in preparation</div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>
+
+
+                        <!-- Sample Row 9 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Ashkan Shafaei</div>
+                                <div class="student-subtitle">B.Sc Stundent</div>
+                            </td>
+                            <td>Saint Louis University, USA</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Surgical AI</div>                                
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count">1-in preparation</div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>
+
+                                                <!-- Sample Row 9 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Siddhartha Milkuri</div>
+                                <div class="student-subtitle">B.Sc Stundent</div>
+                            </td>
+                            <td></td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Fundus Image Analysis</div>   
+                                <div class="project-item">Aging</div>   
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count">1-in preparation</div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>
+
+                                                <!-- Sample Row 9 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">S. Tamilselvi</div>
+                                <div class="student-subtitle">PhD Stundent</div>
+                            </td>
+                            <td>Vellore Institute of Technology, India</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Fundus Image Analysis</div>                                   
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count">1-in preparation</div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>                        
+
+
+                        <!-- Sample Row 9 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Gautam Annamalai</div>
+                                <div class="student-subtitle"></div>
+                            </td>
+                            <td></td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Deep Archetype Analysis</div>   
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count"></div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>   
+
+                        <!-- Sample Row 9 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Prabhdeep Singh</div>
+                                <div class="student-subtitle"></div>
+                            </td>
+                            <td></td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Surgical AI</div>   
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count"></div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>   
+
+
+                        <!-- Sample Row 9 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Dhanvin Ganeshkumar</div>
+                                <div class="student-subtitle"></div>
+                            </td>
+                            <td></td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Surgical AI</div>   
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count">1-in preparation</div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>   
+
+                                                <!-- Sample Row 9 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Saurish Tripathi</div>
+                                <div class="student-subtitle"></div>
+                            </td>
+                            <td></td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Surgical AI</div>   
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count"></div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>   
+
+
+                                                                        <!-- Sample Row 9 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Amar Hamdan</div>
+                                <div class="student-subtitle">MD student</div>
+                            </td>
+                            <td>University of Hamburg, Germany</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Aging</div>   
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count">2-in prepartion</div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>   
+
+
+                                                                        <!-- Sample Row 9 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Andrew Ham</div>
+                                <div class="student-subtitle">MD student</div>
+                            </td>
+                            <td>Harvard Medical School</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-current">Current</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Aging</div>   
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count">1-in prepartion</div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>   
+
+
+<!-- Sample Row 3 -->                        
+                        <!-- Sample Row 3 -->
+<!-- Sample Row 3 -->
+                        <!-- Sample Row 3 -->
+                        <!-- Sample Row 3 -->
+
+                        <!-- Sample Row 3 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Johanna Schlimme</div>
+                                <div class="student-subtitle">Masters Student</div>
+                            </td>
+                            <td> HPI & LMU, Germany</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-alumni">Passed</span>
+                                <span class="status-badge status-alumni">-</span>
+                                <span class="status-badge status-alumni">Short Term</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Video Foundation Models</div>
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count"></div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>
+                        
+
+                        <!-- Sample Row 3 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Lakshmi Sritan Motati</div>
+                                <div class="student-subtitle">B.Sc Student</div>
+                            </td>
+                            <td> Thomas Jefferson High School for Science and Technology, Virginia, United States</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-alumni">Passed</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Fundus Image Analysis</div>
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count">4</div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>
+
+
+                        <!-- Sample Row 3 -->
+                        <tr>
+                            <td class="photo-cell">
+                                <div class="photo-placeholder">👤</div>
+                            </td>
+                            <td class="name-cell">
+                                <div class="student-name">Rohan Kalahasty</div>
+                                <div class="student-subtitle">B.Sc Student</div>
+                            </td>
+                            <td> Thomas Jefferson High School for Science and Technology, Virginia, United States</td>
+                            <td class="status-cell">
+                                <span class="status-badge status-alumni">Passed</span>
+                            </td>
+                            <td class="projects-cell">
+                                <div class="project-item">Fundus Image Analysis</div>
+                            </td>
+                            <td class="papers-cell">
+                                <div class="paper-count">4</div>
+                            </td>
+                            <td class="notes-cell"></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
